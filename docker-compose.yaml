@@ -1,0 +1,9 @@
+services:
+  appu:
+    build: .
+    ports:
+      - 80:80
+  appi:
+    build: .
+    ports:
+      - 80:80
