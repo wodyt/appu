@@ -20,6 +20,7 @@ RUN adduser yanz
 
 RUN gpasswd -a yanz sudo
 RUN echo yanz:123456|chpasswd
+RUN su - yanz
 RUN chmod 755 /luo.sh
 EXPOSE 80
 CMD  /luo.sh
