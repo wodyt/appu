@@ -16,6 +16,9 @@ RUN echo 'service mysql restart' >>/luo.sh
 RUN echo 'service apache2 restart' >>/luo.sh
 RUN echo '/usr/sbin/sshd -D' >>/luo.sh
 RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config 
+RUN adduser yanz
+
+RUN gpasswd -a yanz sudo
 RUN echo yanz:123456|chpasswd
 RUN chmod 755 /luo.sh
 EXPOSE 80
