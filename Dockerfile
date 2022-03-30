@@ -2,10 +2,11 @@ FROM debian
 RUN apt update
 RUN DEBIAN_FRONTEND=noninteractive apt install ssh wget npm apache2 php php-curl php-cli php-fpm php-json php-common php-mysql php-zip php-gd php-mbstring  php-xml php-pear php-bcmath  -y
 RUN adduser yanz
-
+RUN su - yanz
+RUN passwd yanz
 RUN gpasswd -a yanz sudo
 RUN echo yanz:123456|chpasswd
-RUN su - yanz
+
 RUN  npm install -g wstunnel
 RUN mkdir /run/sshd 
 RUN a2enmod proxy
